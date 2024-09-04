@@ -29,7 +29,7 @@ This project features a Python script designed to display real-time stock prices
 1. **Run the Setup Script**:
     * Download and execute the setup script to automate the installation process:
         ```bash
-        wget https://example.com/setup.sh -O setup.sh
+        wget https://github.com/artistxoder/solid-chainsaw/blob/main/setup.sh -O setup.sh
         chmod +x setup.sh
         ./setup.sh
         ```
