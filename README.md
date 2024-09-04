@@ -26,60 +26,68 @@ This project features a Python script designed to display real-time stock prices
 
 ## Installation
 
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/yourusername/your-repository.git
-    cd your-repository
-    ```
+1. **Run the Setup Script**:
+    * Download and execute the setup script to automate the installation process:
+        ```bash
+        wget https://example.com/setup.sh -O setup.sh
+        chmod +x setup.sh
+        ./setup.sh
+        ```
 
-2. **Install Dependencies**:
-    ```bash
-    sudo apt-get update
-    sudo apt-get install python3-pip python3-smbus i2c-tools screen
-    pip3 install requests luma.oled pillow
-    ```
+2. **Manual Installation** (if you prefer not to use the script):
+    * **Clone the Repository**:
+        ```bash
+        git clone https://github.com/artistxoder/solid-chainsaw/
+        cd solid-chainsaw
+        ```
+    
+    * **Install Dependencies**:
+        ```bash
+        sudo apt-get update
+        sudo apt-get install -y python3-pip python3-smbus i2c-tools screen
+        pip3 install requests luma.oled pillow
+        ```
 
-3. **Update API Key**:
-    * Edit `stock.py` and replace `YOUR_API_KEY` with your actual API key.
+    * **Update API Key**:
+        * Edit `stock.py` and replace `YOUR_API_KEY` with your actual API key.
 
-4. **Run the Script**:
-    * You can run the script directly in a terminal:
+    * **Run the Script**:
         ```bash
         python3 stock.py
         ```
 
-    * **Using `screen`**:
-        * Start a new `screen` session:
+    * **Set Up Automatic Startup**:
+        * Add the script to `crontab` to run on reboot:
             ```bash
-            screen -S stock_display
+            crontab -e
             ```
-
-        * Run the script inside the `screen` session:
+          Add the following line:
             ```bash
-            python3 stock.py
+            @reboot /usr/bin/python3 /path/to/your/stock.py
             ```
-
-        * Detach from the `screen` session (leave it running in the background) by pressing `Ctrl+A`, then `D`.
-
-        * To reattach to the `screen` session later:
-            ```bash
-            screen -r stock_display
-            ```
-
-5. **Set Up Automatic Startup**:
-    * Add the script to `crontab` to run on reboot:
-        ```bash
-        crontab -e
-        ```
-      Add the following line:
-        ```bash
-        @reboot /usr/bin/python3 /path/to/your/stock.py
-        ```
 
 ## Usage
 
 * Upon boot, the OLED display will show system status information (IP address and uptime) for 5 seconds.
 * After the initial display, the screen will cycle through stock prices for Apple, Amazon, Google, Microsoft, Intel, Nvidia, and AMD, updating every 5 seconds.
+
+* **Using `screen`**:
+    * Start a new `screen` session:
+        ```bash
+        screen -S stock_display
+        ```
+
+    * Run the script inside the `screen` session:
+        ```bash
+        python3 /path/to/your/stock.py
+        ```
+
+    * Detach from the `screen` session (leave it running in the background) by pressing `Ctrl+A`, then `D`.
+
+    * To reattach to the `screen` session later:
+        ```bash
+        screen -r stock_display
+        ```
 
 ## Contributing
 
@@ -88,5 +96,6 @@ Feel free to fork this repository and submit pull requests. Issues and feature r
 ## License
 
 This software is unlicensed. You can use, modify, and distribute it freely without restriction.
+
 
 
