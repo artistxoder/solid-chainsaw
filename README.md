@@ -1,3 +1,4 @@
+![1000003386](https://github.com/user-attachments/assets/aac9884f-eb01-44d3-b456-03907bd4036d)
 # Stock Price Display on Raspberry Pi
 
 ## Overview
